@@ -4,74 +4,90 @@
 
 // local
 #import "colors.typ": *
+#import "languages.typ": *
 
 // counter for mathblocks
-#let mathcounter = rich-counter(
-  identifier: "mathblocks",
-  inherited_levels: 1
+#let prop = rich-counter(
+  identifier: "proposition",
+  inherited_levels: 0,
+)
+
+#let def = rich-counter(
+  identifier: "definition",
+  inherited_levels: 0,
+)
+
+#let ex = rich-counter(
+  identifier: "example",
+  inherited_levels: 0,
 )
 
 #let my_mathblock = mathblock.with(
   radius: 0.3em,
   inset: 0.8em,
-  counter: mathcounter,
   breakable: false,
   titlix: title => [(#title):],
 )
 
 // theorem etc. settings
 #let theorem = my_mathblock(
-  blocktitle: "Theorem",
+  counter: prop,
+  blocktitle: get-label("theorem"),
   fill: color1.lighten(90%),
   stroke: color1.darken(20%),
 )
 
 #let proposition = my_mathblock(
-  blocktitle: "Proposition",
+  counter: prop,
+  blocktitle: get-label("proposition"),
   fill: color2.lighten(90%),
   stroke: color2.darken(20%),
 )
 
 #let corollary = my_mathblock(
-  blocktitle: "Corollary",
+  counter: prop,
+  blocktitle: get-label("corollary"),
   fill: color3.lighten(90%),
   stroke: color3.darken(20%),
 )
 
 #let lemma = my_mathblock(
-  blocktitle: "Lemma",
+  counter: prop,
+  blocktitle: get-label("lemma"),
   fill: color4.lighten(90%),
   stroke: color4.darken(20%),
 )
 
 #let definition = my_mathblock(
-  blocktitle: "Definition",
+  counter: def,
+  blocktitle: get-label("definition"),
   fill: color5.lighten(95%),
   stroke: color5.darken(20%),
 )
 
 #let remark = my_mathblock(
-  blocktitle: "Remark",
+  blocktitle: get-label("remark"),
   fill: color1.lighten(90%),
   stroke: color1.darken(20%),
 )
 
 #let reminder = my_mathblock(
-  blocktitle: "Reminder",
+  blocktitle: get-label("reminder"),
   fill: color3.lighten(90%),
   stroke: color3.darken(20%),
 )
 
 #let example = my_mathblock(
-  blocktitle: "Example",
+  counter: ex,
+  blocktitle: get-label("example"),
   fill: color2.lighten(90%),
   stroke: color2.darken(20%),
 )
 
 #let question = my_mathblock(
-  blocktitle: "Question",
+  blocktitle: get-label("question"),
   fill: color3.lighten(75%),
   stroke: color3.darken(20%),
 )
 
-#let proof = proofblock()
+#let proof = proofblock(prefix: [_#get-label("proof")._])

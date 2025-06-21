@@ -1,4 +1,4 @@
-= Introduction<chap:introduction>
+= Introduction <chap:introduction>
 
 - here we are in @chap:introduction
 - examples in @chap:example

@@ -1,21 +1,17 @@
 // global
-#import "../lib.typ": template
+#import "./lib.typ": template
 
 //local
 #import "customization/colors.typ": *
 
 
 #show: template.with(
+  lang: "en",
+
   // personal/subject related stuff
   author: "Stuart Dent",
   title: "My Very Fancy and Good-Looking Thesis About Interesting Stuff",
-  supervisor1: "Prof. Dr. Sue Persmart",
-  supervisor2: "Prof. Dr. Ian Telligent",
-  degree: "Example",
-  program: "Example-Studies",
-  university: "Example University",
-  institute: "Example Institute",
-  deadline: datetime.today().display(),
+  date: "Juin 2025",
 
   // file paths for logos etc.
   uni-logo: image("images/logo_placeholder.svg", width: 50%),
@@ -30,12 +26,12 @@
 
   // equation settings
   equate-settings: (breakable: true, sub-numbering: true, number-mode: "label"),
-	equation-numbering-pattern: "(1.1)",
+  equation-numbering-pattern: "(1.1)",
 
   // colors
   cover-color: color1,
   heading-color: color2,
-  link-color: color3
+  link-color: color3,
 )
 
 // ------------------- content -------------------
@@ -45,7 +41,7 @@
 #include "chapter/appendix.typ"
 
 // ------------------- bibliography -------------------
-#bibliography("References.bib")
+#bibliography("bibliography.bib")
 
 // ------------------- declaration -------------------
 #include "chapter/declaration.typ"
