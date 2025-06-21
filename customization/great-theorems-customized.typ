@@ -23,10 +23,10 @@
 )
 
 #let my_mathblock = mathblock.with(
-  radius: 0.3em,
+  radius: 0pt,
   inset: 0.8em,
   breakable: false,
-  titlix: title => [(#title):],
+  //titlix: title => [(#title):],
 )
 
 // theorem etc. settings
@@ -34,60 +34,79 @@
   counter: prop,
   blocktitle: get-label("theorem"),
   fill: color1.lighten(90%),
-  stroke: color1.darken(20%),
+  stroke: (
+    left: color1.darken(20%),
+  ),
 )
 
 #let proposition = my_mathblock(
   counter: prop,
   blocktitle: get-label("proposition"),
   fill: color2.lighten(90%),
-  stroke: color2.darken(20%),
+  stroke: (
+    left: color2.darken(20%),
+  ),
 )
 
 #let corollary = my_mathblock(
   counter: prop,
   blocktitle: get-label("corollary"),
   fill: color3.lighten(90%),
-  stroke: color3.darken(20%),
+  stroke: (
+    left: color3.darken(20%),
+  ),
 )
 
 #let lemma = my_mathblock(
   counter: prop,
   blocktitle: get-label("lemma"),
   fill: color4.lighten(90%),
-  stroke: color4.darken(20%),
+  stroke: (
+    left: color4.darken(20%),
+  ),
 )
 
 #let definition = my_mathblock(
   counter: def,
   blocktitle: get-label("definition"),
+  radius: 0pt,
   fill: color5.lighten(95%),
-  stroke: color5.darken(20%),
+  stroke: (
+    left: color5.darken(20%),
+  ),
 )
 
 #let remark = my_mathblock(
   blocktitle: get-label("remark"),
   fill: color1.lighten(90%),
-  stroke: color1.darken(20%),
+  stroke: (
+    left: color1.darken(20%),
+  ),
 )
 
 #let reminder = my_mathblock(
   blocktitle: get-label("reminder"),
   fill: color3.lighten(90%),
-  stroke: color3.darken(20%),
+  stroke: (
+    stroke: color3.darken(20%),
+  ),
 )
 
 #let example = my_mathblock(
   counter: ex,
   blocktitle: get-label("example"),
   fill: color2.lighten(90%),
-  stroke: color2.darken(20%),
+  stroke: (
+    left: color2.darken(20%),
+  ),
 )
 
 #let question = my_mathblock(
   blocktitle: get-label("question"),
   fill: color3.lighten(75%),
-  stroke: color3.darken(20%),
+  stroke: (
+    left: color3.darken(20%),
+  ),
 )
 
 #let proof = proofblock(prefix: [_#get-label("proof")._])
